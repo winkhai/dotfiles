@@ -44,10 +44,10 @@ def harden(writeout_file):
     for ip_address in ip_addresses:
         os.system('ssh -o "StrictHostKeyChecking no" root@{remote_computer} \'bash -s\' < procedures/remote0.sh'.format(remote_computer=ip_address))
         os.system('scp /Users/khaingwin/.ssh/id_rsa.pub root@{remote_computer}:/etc/ssh/new_user/authorized_keys'.format(remote_computer=ip_address))
-        os.system('sh -c \'echo "new_user:swordfish" > /Users/khaingwin/byte_aces/dotfiles/setup/.credentials\'')
-        os.system('scp /Users/khaingwin/byte_aces/dotfiles/setup/.credentials root@{remote_computer}:/home/new_user/'.format(remote_computer=ip_address))
+        os.system('sh -c \'echo "new_user:swordfish" > /Users/khaingwin/dotfiles/setup/.credentials\'')
+        os.system('scp /Users/khaingwin/dotfiles/setup/.credentials root@{remote_computer}:/home/new_user/'.format(remote_computer=ip_address))
         os.system('ssh -o "StrictHostKeyChecking no" root@{remote_computer} \'bash -s\' < procedures/remote1.sh'.format(remote_computer=ip_address))
-    os.system('rm /Users/khaingwin/byte_aces/dotfiles/setup/.credentials')
+    os.system('rm /Users/khaingwin/dotfiles/setup/.credentials')
     return ip_addresses
 
 if __name__ == '__main__':
