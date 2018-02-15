@@ -12,4 +12,4 @@ usermod -aG sudo new_user
 
 cp .nanorc /home/new_user/
 
-mkdir -p /etc/ssh
+mkdir -p /etc/ssh/new_user/
